@@ -1,0 +1,47 @@
+title: "ProTip -  "
+email: mail@protip.is
+description: >- # this means to ignore newlines until "baseurl:"
+    Help people be rewarded for doing what they love by subscribing, donating,
+    sending micropayments to help producers and makers crowdsource a sustainable 
+    living.
+baseurl: ""
+url: "https://protip.is"
+twitter_username: ProTipHQ
+github_username:  ProTipHQ
+
+permalink: /news/:year/:month/:title/
+
+# Build settings
+markdown: kramdown
+
+plugins:
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-feed
+  - bootstrap
+
+whitelist:
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-feed
+  - bootstrap
+
+media: "/media"
+
+# Exclude from processing.
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - node_modules
+    - vendor/bundle/
+    - vendor/cache/
+    - vendor/gems/
+    - vendor/ruby/
+
+include:
+    - _pages
+
+keep_files:
+    - media

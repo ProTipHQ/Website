@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+    <p class="post-meta">Posted <time datetime="{{ page.date |
+date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y"
+}}</time> in <a href="/{{page.section}}/">{{page.section|capitalize}}</a> {% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}</p>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+    {% if page.todo_context_url %}<a href="{{page.todo_context_url}}">Context URL</a>{% endif %}
+  </div>
+  {% if page.todo_tasks %}
+  <div class="tasks">
+    <h3>Tasks</h3>
+    <ul>
+      {% for task in page.todo_tasks %}
+      <li>
+        <input type="checkbox" {% if task.status == "done" %}checked="checked"{% endif %}>
+        {{task.task}} - <a href="{{task.url}}" target="_blank">link</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  {% if page.categories %}
+  <div class="categories">
+    <h3>Tags</h3>
+	<p>
+    {% for category in page.categories %}
+    {{category}}&nbsp;&nbsp;&nbsp;
+    {% endfor %}
+	</p>
+  </div>
+  {% endif %}
+</article>
